@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+					var c=0;
+					var t;
+					var timer_is_on=0;
+
+					function timedCount()
+					{
+					document.getElementById('txt').value=c;
+					c=Math.floor(Math.random() * 61);
+					t=setTimeout(function(){timedCount()},10);
+					}
+
+					function doTimer()
+					{
+					if (!timer_is_on)
+					  {
+					  timer_is_on=1;
+					  timedCount();
+					  }
+					}
+
+					function stopCount()
+					{
+					clearTimeout(t);
+					timer_is_on=0;
+					}
+	</script>	
+	<style>
+	#txt {  font-size: 472px;
+		    text-align: center;
+		    font-style: "Comic Sans MS", cursive;
+		    margin-left: auto;
+    		margin-right: auto;
+		 }
+	#form {margin:auto;
+			width:70%;
+			background-color:#b0e0e6;
+			top:50%;
+			vertical-align: middle;
+		 }
+	.center{
+			margin-left: auto;
+    		margin-right: auto;
+	}
+	</style>
+</head>
+
+<body>
+<form id="form">
+<input type="button" value="Start count!" onclick="doTimer()" class="center"/>
+<input type="text" align="middle" id="txt" size="2" class="center" />
+<input type="button" value="Stop count!" onclick="stopCount()" />
+</form>
+
+</body>
+</html>
+
